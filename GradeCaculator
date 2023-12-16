@@ -1,0 +1,43 @@
+
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the number of students:");
+        int numStudents = scanner.nextInt();
+
+        double totalScore = 0;
+
+        for (int i = 1; i <= numStudents; i++) {
+            System.out.println("Enter the score for student " + i + ":");
+            double score = scanner.nextDouble();
+            totalScore += score;
+        }
+
+        double averageScore = totalScore / numStudents;
+
+        char grade = calculateGrade(averageScore);
+
+        System.out.println("Average Score: " + averageScore);
+        System.out.println("Grade: " + grade);
+
+        scanner.close();
+    }
+
+    private static char calculateGrade(double averageScore) {
+        if (averageScore >= 90) {
+            return 'A';
+        } else if (averageScore >= 80) {
+            return 'B';
+        } else if (averageScore >= 70) {
+            return 'C';
+        } else if (averageScore >= 60) {
+            return 'D';
+        } else {
+            return 'F';
+        }
+    }
+}
+
